@@ -1,41 +1,231 @@
-- Retail Customer Shopping Behavior & Trends Analysis
-An end-to-end data analytics project built on a retail customer shopping dataset, covering the full workflow from raw data to business recommendations: Python for data cleaning and feature engineering, SQL for relational modeling and business-question analysis, and Power BI for an interactive dashboard.
+# Retail Customer Shopping Behavior & Trends Analysis
 
-- Business Problem
-A retail company wants to understand its customers' shopping behavior to improve sales, customer satisfaction, and long-term loyalty. This project answers:
-"How can the company leverage consumer shopping data to identify trends, improve customer engagement, and optimize marketing and product strategies?"
+An end-to-end Data Analytics project that analyzes retail customer shopping behavior to uncover purchasing trends, customer value drivers, loyalty patterns, and business opportunities. The project demonstrates the complete analytics workflow—from raw data preparation and feature engineering in Python, to relational data modeling and business analysis in SQL, and finally interactive dashboard development in Power BI.
 
+## Business Problem
 
-- Tech Stack
-Python (pandas, numpy) — data cleaning, feature engineering
-SQL (SQLite) — star-schema data modeling, business-question queries
-Power BI — interactive 4-page dashboard
-Microsoft Word — project report
+A retail company wants to better understand customer shopping behavior to improve sales performance, customer satisfaction, retention, and long-term loyalty.
 
+This project answers the following business question:
+
+**"How can consumer shopping data be leveraged to identify trends, improve customer engagement, and optimize marketing and product strategies?"**
+
+---
+
+## Tech Stack
+
+* **Python (Pandas, NumPy)** – Data cleaning, preprocessing, and feature engineering
+* **SQL (SQLite)** – Star schema data modeling and business analytics queries
+* **Power BI** – Interactive dashboard development and visualization
+* **Microsoft Word** – Project documentation and reporting
+
+---
+
+## Project Structure
+
+```text
 ├── data/                  # Raw and cleaned datasets
 ├── python/                # Data cleaning & feature engineering scripts
-├── sql/                   # Schema, queries, and SQLite database
-├── powerbi/               # Power BI source tables, dashboard file, and build guide
-├── report/                # Full project report (Word doc)
+├── sql/                   # Database schema, SQL queries, and SQLite database
+├── powerbi/               # Dashboard source tables, PBIX file, and build guide
+├── report/                # Final project report
 └── README.md
+```
 
-- Workflow
-Data Preparation (Python) — Cleaned a 3,900-row retail dataset: standardized column names, imputed missing review ratings using category-wise medians, and engineered new features including age brackets, a composite customer value score, and a high-value customer flag. Also simulated purchase dates and an Online/Offline sales channel field to enable time-based and channel-based analysis.
-Data Analysis (SQL) — Modeled the cleaned data into a star schema (dim_customers, dim_products, fact_transactions) in SQLite, and wrote 14 business-question queries covering channel performance, customer segmentation, loyalty drivers, and purchase drivers.
-Visualization (Power BI) — Built a 4-page interactive dashboard: Overview (KPIs, revenue trend, channel split), Customer Segments, Loyalty & Repeat-Purchase Drivers, and Purchase Drivers — with slicers for season, channel, and category.
-Report — A full written report summarizing methodology, key findings, and business recommendations, with embedded dashboard screenshots.
+---
 
+## Project Workflow
 
-- Key Findings
-Online dominates revenue: ~78% of orders and ~78% of revenue come from the Online channel — roughly 3.6x Offline.
-Discounts show minimal impact: average order value and review rating are nearly identical whether a discount/promo was used or not, suggesting the current discounting strategy isn't a meaningful lever.
-Subscription status is a weak loyalty signal: subscribed customers average only ~1 more previous purchase than non-subscribed customers.
-Purchase history beats demographics: high-value customers (top 20% by a composite value score) are best identified by order value and previous purchase count — not age, gender, location, or subscription status.
-Satisfaction is broadly uniform: review ratings stay in a tight 3.71–3.79 band across categories and purchase frequency bands, so satisfaction alone doesn't explain repeat-purchase behavior.
+### 1. Data Preparation (Python)
 
+Processed and cleaned a retail shopping dataset containing approximately 3,900 customer records.
 
-- How to Reproduce
-Run python/data_preparation.py (or the Colab notebook python/data_preparation_colab.ipynb) to clean the raw dataset.
-Run sql/build_database.py to load the cleaned data into a SQLite database.
-Run the queries in sql/analysis_queries.sql against sql/retail.db.
-Open powerbi/retail_dashboard.pbix in Power BI Desktop to explore the dashboard, or follow powerbi/POWER_BI_GUIDE.md to rebuild it from scratch.
+Key tasks included:
+
+* Standardized column names and formats
+* Handled missing values using category-level median imputation
+* Created age-group segmentation features
+* Built a composite Customer Value Score
+* Identified High-Value Customers using scoring thresholds
+* Simulated purchase dates for time-series analysis
+* Added Online/Offline sales channel classification
+
+### 2. Data Modeling & Analysis (SQL)
+
+Designed and implemented a star-schema database model:
+
+* `dim_customers`
+* `dim_products`
+* `fact_transactions`
+
+Developed 14 business-focused SQL analyses covering:
+
+* Customer segmentation
+* Revenue performance
+* Channel effectiveness
+* Loyalty and repeat-purchase behavior
+* Product and purchase drivers
+* Customer value analysis
+
+### 3. Data Visualization (Power BI)
+
+Created a 4-page interactive dashboard:
+
+#### Overview
+
+* Revenue KPIs
+* Sales trends
+* Channel performance
+* Category performance
+
+#### Customer Segments
+
+* Demographic analysis
+* High-value customer identification
+* Customer distribution insights
+
+#### Loyalty & Repeat Purchase Drivers
+
+* Subscription analysis
+* Repeat purchase behavior
+* Customer retention indicators
+
+#### Purchase Drivers
+
+* Discount impact
+* Product category performance
+* Customer satisfaction metrics
+
+Interactive slicers allow filtering by:
+
+* Season
+* Sales Channel
+* Product Category
+
+### 4. Reporting
+
+Prepared a comprehensive project report documenting:
+
+* Methodology
+* Data preparation process
+* Analytical approach
+* Dashboard design
+* Key findings
+* Business recommendations
+
+---
+
+## Key Findings
+
+### Online Channel Dominates Revenue
+
+* Approximately **78% of orders** originate from the Online channel.
+* Approximately **78% of total revenue** is generated online.
+* Online sales produce roughly **3.6x more revenue** than Offline sales.
+
+### Discounts Have Minimal Impact
+
+* Average order value remains nearly unchanged regardless of discount usage.
+* Customer review ratings are also similar between discounted and non-discounted purchases.
+* Current discount strategies appear to have limited influence on customer behavior.
+
+### Subscription Status Is a Weak Loyalty Indicator
+
+* Subscribed customers average only about **one additional previous purchase** compared to non-subscribers.
+* Subscription alone is not a strong predictor of repeat purchasing.
+
+### Purchase History Outperforms Demographics
+
+High-value customers are better identified through:
+
+* Order value
+* Previous purchase count
+* Customer Value Score
+
+Demographic variables such as:
+
+* Age
+* Gender
+* Location
+* Subscription status
+
+show relatively weak predictive power.
+
+### Customer Satisfaction Is Consistent Across Segments
+
+* Average review ratings remain within a narrow range of approximately **3.71–3.79**.
+* Satisfaction levels are similar across product categories and purchase frequency groups.
+* Satisfaction alone does not explain repeat-purchase behavior.
+
+---
+
+## Business Recommendations
+
+* Prioritize investment in Online sales channels.
+* Redesign discount strategies and focus on targeted promotions.
+* Develop loyalty programs based on purchasing behavior rather than subscription status.
+* Use transaction history and customer value metrics for customer segmentation.
+* Focus retention efforts on high-value customer groups.
+* Explore additional drivers of repeat purchasing beyond customer satisfaction scores.
+
+---
+
+## How to Reproduce
+
+### Step 1: Data Preparation
+
+Run:
+
+```bash
+python python/data_preparation.py
+```
+
+or use:
+
+```text
+python/data_preparation_colab.ipynb
+```
+
+### Step 2: Build Database
+
+Run:
+
+```bash
+python sql/build_database.py
+```
+
+This will generate:
+
+```text
+sql/retail.db
+```
+
+### Step 3: Execute Analysis Queries
+
+Run the SQL scripts located in:
+
+```text
+sql/analysis_queries.sql
+```
+
+against:
+
+```text
+sql/retail.db
+```
+
+### Step 4: Explore Dashboard
+
+Open:
+
+```text
+powerbi/retail_dashboard.pbix
+```
+
+using Power BI Desktop to interact with the dashboard and explore insights.
+
+---
+
+## Project Outcome
+
+This project demonstrates a complete end-to-end Data Analytics workflow, combining data engineering, SQL analytics, business intelligence, and storytelling to transform raw retail transaction data into actionable business insights and strategic recommendations.
